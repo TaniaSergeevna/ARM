@@ -1,0 +1,26 @@
+{% extends "Entrance/novigation.html" %}
+
+
+{% block content %}
+
+    <div class="content">
+    <h1>Домашняя страница</h1>
+    <form method="POST"  style="width: 500px" action="/menu/addDB/1">
+        {% csrf_token %}
+         <p>
+            <label>Введите name</label><br>
+            <input type="text" name="name"  value="{{person.name}}"/>
+        </p>
+         <p>
+            <label>Введите weight</label><br>
+            <input type="text" name="weight" value="{{person.weight}}"/>
+        </p>
+        <p>
+            <label>Введите price</label><br>
+            <input type="text" name="price" value="{{person.price}}"/>
+        </p>
+        <button type="submit" >Сохранить</button>
+
+    </div>
+
+{% endblock %}
