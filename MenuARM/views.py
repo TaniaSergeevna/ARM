@@ -28,7 +28,8 @@ def db(request):
     if request.method == "POST":
         print()
 
-        tom = Menu1(name=request.POST.get('name'), weight=request.POST.get('weight'),
+        tom = Menu1(name=request.POST.get('name'),
+                    weight=request.POST.get('weight'),
                     price=request.POST.get("price"))
         tom.save()
     return HttpResponseRedirect("/menu/addDB/")

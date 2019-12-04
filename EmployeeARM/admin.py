@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import HallWorkers, KitchenWorkers, Administrator
+from .models import Workers
 
 # Register your models here.
-admin.site.register(HallWorkers)
-admin.site.register(KitchenWorkers)
-admin.site.register(Administrator)
+admin.site.register(Workers)

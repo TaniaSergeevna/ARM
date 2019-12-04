@@ -18,7 +18,7 @@
 
         </div>
 <script>
-    var x, i, j, selElmnt, a, b, c;
+    var x, i, j, selElmnt, a, b;
     /*look for any elements with the class "custom-select":*/
     x = document.getElementsByClassName("custom-select");
 
@@ -35,8 +35,8 @@
       for (j = 1; j < selElmnt.length; j++) {
         /*for each option in the original select element,
         create a new DIV that will act as an option item:*/
-        c = document.createElement("DIV");
-        c.innerHTML = selElmnt.options[j].innerHTML;
+        var c = document.createElement("DIV");
+          c.innerHTML = selElmnt.options[j].innerHTML;
         c.addEventListener("click", function(e) {
             /*when an item is clicked, update the original select box,
             and the selected item:*/
@@ -49,24 +49,48 @@
 
                   if (s.options[i].innerHTML  == 'Работники зала'){
 
-                    var as =" <table><caption> Работники зала </caption><tr><th> Имя </th> <th> Фамилия </th>" +
-                      " <th> Должность </th></tr> {% for res in people %}<tr><td>{{ res.name }}</td> "+
-                          "<td>{{ res.surname }}</td><td>{{ res.position }}</td></tr> {% endfor %} </table> ";
+                    var as ="  <table><caption> Работники зала </caption><tr><th> Имя </th> <th> Фамилия </th> " +
+                        "<th> Должность </th><th> Телефон </th><th> Адрес </th></tr>"+
+                      "{% for res in people %} "+
+                          "{% if res.worksNumber == 1 %} "+
+                              " <tr><td>{{ res.name }}</td><td>{{ res.surname }}</td>"+
+                              "<td>{{ res.position }}</td><td>{{ res.phone}}</td><td>{{ res.address }}</td></tr>   "+
+                          "{% endif %} "+
+                      "{% endfor %} "+
+                      "</table> <form action='addEmployee/'>" +
+                      "    <button style='width:200px;'> Измененить данные </button>" +
+                      "</form>";
                   document.getElementById("insert").innerHTML = as;
                   }
                   else  if (s.options[i].innerHTML  == 'Работники кухни')
                   {
-                      var as =" <table><caption> Работники кухни </caption><tr><th> Имя </th> <th> Фамилия </th>" +
-                      " <th> Должность </th></tr> {% for res in people %}<tr><td>{{ res.name }}</td> "+
-                          "<td>{{ res.surname }}</td><td>{{ res.position }}</td></tr> {% endfor %} </table> " ;
+                      var as ="  <table><caption> Работники кухни </caption><tr><th> Имя </th> <th> Фамилия </th> " +
+                        "<th> Должность </th><th> Телефон </th><th> Адрес </th></tr>"+
+                      "{% for res in people %} "+
+                          "{% if res.worksNumber == 2 %} "+
+                              " <tr><td>{{ res.name }}</td><td>{{ res.surname }}</td>"+
+                              "<td>{{ res.position }}</td><td>{{ res.phone}}</td><td>{{ res.address }}</td></tr>   "+
+                          "{% endif %} "+
+                      "{% endfor %} "+
+                      "</table> <form action='addEmployee/'>" +
+                      "    <button style='width:200px;'> Измененить данные </button>" +
+                      "</form>";
                           document.getElementById("insert").innerHTML = as;
 
                   }
                   else  if (s.options[i].innerHTML  == 'Управляющий персонал')
                   {
-                      var as =" <table><caption> Управляющий персонал </caption><tr><th> Имя </th> <th> Фамилия </th>" +
-                      " <th> Должность </th></tr> {% for res in people %}<tr><td>{{ res.name }}</td> "+
-                          "<td>{{ res.surname }}</td><td>{{ res.position }}</td></tr> {% endfor %} </table> " ;
+                      var as ="  <table><caption> Управляющий персонал </caption><tr><th> Имя </th> <th> Фамилия </th> " +
+                        "<th> Должность </th><th> Телефон </th><th> Адрес </th></tr>"+
+                      "{% for res in people %} "+
+                          "{% if res.worksNumber == 3 %} "+
+                              " <tr><td>{{ res.name }}</td><td>{{ res.surname }}</td>"+
+                              "<td>{{ res.position }}</td><td>{{ res.phone}}</td><td>{{ res.address }}</td></tr>   "+
+                          "{% endif %} "+
+                      "{% endfor %} "+
+                      "</table> <form action='addEmployee/'>" +
+                      "    <button style='width:200px;'> Измененить данные </button>" +
+                      "</form>";
                           document.getElementById("insert").innerHTML = as;
 
                   }
