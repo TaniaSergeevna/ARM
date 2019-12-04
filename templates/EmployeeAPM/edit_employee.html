@@ -1,0 +1,39 @@
+{% extends "Entrance/novigation.html" %}
+
+
+{% block content %}
+
+    <div class="content">
+    <h1>Домашняя страница</h1>
+    <form method="POST"  style="width: 500px" action="/employee/addEmployee/1">
+        {% csrf_token %}
+         <p>
+            <label>Введите name</label><br>
+            <input type="text" name="name"  value="{{person.name}}"/>
+        </p>
+         <p>
+            <label>Введите weight</label><br>
+            <input type="text" name="surname" value="{{person.surname}}"/>
+        </p>
+        <p>
+            <label>Введите занимаю должность</label><br>
+            <input type="text" name="position" value="{{person.position}}"/>
+        </p>
+         <p>
+            <label>Введите занимаю телефон</label><br>
+            <input type="text" name="phone" value="{{person.phone}}"/>
+        </p>
+         <p>
+            <label>Введите занимаю адресс</label><br>
+            <input type="text" name="address"  value="{{person.address}}" />
+
+        </p>
+        <p>
+            <label>Введите занимаю адресс</label><br>
+             <input type="text" name = 'worksNumber' value="{{person.worksNumber}}"/>
+        </p>
+        <button type="submit" >Сохранить</button>
+    </form>
+    </div>
+
+{% endblock %}
