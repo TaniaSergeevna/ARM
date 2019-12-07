@@ -7,8 +7,8 @@ urlpatterns = [
     path('', views.menu, name='menu'),
     path('addDB/', views.addDB, name="addDB/"),
     path('addDB/1', views.db, name="addDB/1"),
-    path('addDB/delete/<int:id>/', views.delete, name="addDB/delete/"),
-    path('addDB/edit/<int:id>/', views.edit, name="addDB/edit/"),
+    path('delete/<int:id>/', views.delete, name="delete/"),
+    path('edit/<int:id>/', views.edit, name="edit/"),
 
 
     # path('employee/', views.employee, name='employee'),

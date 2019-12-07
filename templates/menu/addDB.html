@@ -6,8 +6,23 @@
     <form style="width: 500px" method="POST" action="/menu/addDB/1">
         {% csrf_token %}
          <p>
-            <label>Введите название закуски</label><br>
+            <label>Введите название </label><br>
             <input type="text" name="name"/>
+        </p>
+        <p>
+            <label>Выберити раздел меню</label><br>
+{#            <input type="text" name="menu_section"/>#}
+            <select name="menu_section">
+                <option >Выберити раздел меню:</option>
+                <option >Закуски</option>
+                <option >Салаты</option>
+                <option >Гарниры</option>
+                <option >Мясо</option>
+                <option >Десерты</option>
+                <option >Напитки</option>
+                <option >Алкоголь</option>
+
+            </select>
         </p>
          <p>
             <label>Введите выход (гр.)</label><br>
@@ -20,21 +35,6 @@
          <button type="submit" >Добавить</button>
     </form >
 
-<table>
-                <caption>
-                  Холодные закуски
-                </caption>
-                <tr>
-                  <th>Наименование</th>
-                  <th>Выход, гр.</th>
-                  <th>Цена, грн.</th>
-                </tr>
-
-                 {% for res in people %}
-        <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td><td>{{ res.price }}</td>
-                      <td><a href="edit/{{res.id}}">Изменить</a> | <a href="delete/{{res.id}}">Удалить</a></td></tr>
-        {% endfor %}
-    </table>
 <form style="width: 500px"  action="/menu/">
          <button type="submit" >Назад</button>
     </form>

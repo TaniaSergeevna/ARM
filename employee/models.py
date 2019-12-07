@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Workers(models.Model):
-    # works_position = ('Работник зала', 'Работник кухни ', 'Админестратор')
+
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     Position = (

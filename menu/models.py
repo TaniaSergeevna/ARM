@@ -1,63 +1,18 @@
 from django.db import models
 
 
-class Menu1(models.Model):
-    name = models.CharField(max_length=30)
+class Menu(models.Model):
+    MENU_SECTION = (('Закуски', 'Закуски'),
+                    ('Салаты', 'Салаты'),
+                    ('Гарниры', 'Гарниры'),
+                    ('Мясо', 'Мясо'),
+                    ('Десерты', 'Десерты'),
+                    ('Напитки', 'Напитки'),
+                    ('Алкоголь', 'Алкоголь'),
+                    )
+    name = models.CharField(max_length=100)
+    menu_section = models.CharField(max_length=100, choices=MENU_SECTION)
     weight = models.IntegerField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu2(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.IntegerField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu3(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.IntegerField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu4(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.IntegerField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu5(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.IntegerField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu6(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.CharField(max_length=10)
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
-class Menu7(models.Model):
-    name = models.CharField(max_length=100)
-    weight = models.CharField(max_length=10)
     price = models.IntegerField()
 
     def __str__(self):
