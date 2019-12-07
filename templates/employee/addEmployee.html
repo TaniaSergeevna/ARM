@@ -1,0 +1,43 @@
+{% extends "entrance/novigation.html" %}
+
+{% block content %}
+    <div class="content">
+        <h3>Страница редактирования данных</h3>
+        <form style="width: 500px" method="POST" action="/employee/addEmployee/1">
+            {% csrf_token %}
+            <p>
+                <label>Введите имя</label><br>
+                <input type="text" name="name"/>
+            </p>
+            <p>
+                <label>Введите фамилию</label><br>
+                <input type="text" name="surname"/>
+            </p>
+            <p>
+                <label>Введите занимаю должность</label><br>
+                <select name="position">
+                    <option>Выберити раздел персонала:</option>
+                    <option>Работники зала</option>
+                    <option>Работники кухни</option>
+                    <option>Управляющий персонал</option>
+                </select>
+            </p>
+            <p>
+                <label>Введите занимаю телефон</label><br>
+                <input type="text" name="phone"/>
+            </p>
+            <p>
+                <label>Введите занимаю адресс</label><br>
+                <input type="text" name="address"/>
+
+            </p>
+
+            <button type="submit">Добавить</button>
+        </form>
+
+        <form style="width: 500px" action="/employee/">
+            <button type="submit">Назад</button>
+        </form>
+
+    </div>
+{% endblock %}
