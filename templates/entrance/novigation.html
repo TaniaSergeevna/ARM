@@ -1,309 +1,318 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#<link rel="stylesheet" type="text/css" href="stylenovigation.css" />#}
-<style>
-    body {margin: 0;}
-
-ul.sidenav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 25%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-ul.sidenav li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-ul.sidenav li a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-ul.sidenav li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-div.content {
-  margin-left: 13%;
-  padding: 1px 16px;
-  height: 100px;
-}
-
-@media screen and (max-width: 900px) {
-  ul.sidenav {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  ul.sidenav li a {
-    float: left;
-    padding: 15px;
-  }
-
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-    ul.sidenav li a {
-        text-align: center;
-        float: none;
-    }
-}
-    table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    border-collapse: collapse;
-    color: #686461;
-  }
-  caption {
-    padding: 20px;
-    display: block;
-    /* color: #000; */
-    padding: 8px 16px;
-    text-decoration: none;
-
-    font-size: 25px;
-    text-align: center;
-    /* font-weight: bold; */
-  }
-  th {
-    border-bottom: 3px solid  #f1f1f1;
-    padding: 20px;
-    text-align: left;
-  }
-  td {
-    padding: 10px;
-  }
-
-
-  /*the container must be positioned relative:*/
-.custom-select {
-    position: relative;
-    font-family: Arial;
-    margin: 20px;
-    /* padding: 20px 50px; */
-
-  }
-
-  .custom-select select {
-    display: none; /*hide original SELECT element:*/
-  }
-
-  .select-selected {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  /*style the arrow inside the select element:*/
-  .select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-  }
-
-  /*point the arrow upwards when the select box is open (active):*/
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-  }
-
-  /*style the items (options), including the selected item:*/
-  .select-items div,.select-selected {
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  /*style items (options):*/
-  .select-items {
-    position: absolute;
-    background-color: #f1f1f1;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-
-  /*hide the items when the select box is closed:*/
-  .select-hide {
-    display: none;
-  }
-
-  .select-items div:hover, .same-as-selected {
-    background-color: #555;
-    color: white;
-  }
-
-    /*assign full width inputs*/
-    input[type=text],
-    input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
-
-    /*set a style for the buttons*/
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    /* set a hover effect for the button*/
-    button:hover {
-        opacity: 0.8;
-    }
-
-    /*set extra style for the cancel button*/
-    .cancelbtn {
-        width: auto;
-        padding: 10px 18px;
-        background-color: #f44336;
-    }
-
-    /*centre the display image inside the container*/
-    .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-    }
-
-    /*set image properties*/
-    img.avatar {
-        width: 40%;
-        border-radius: 50%;
-    }
-
-    /*set padding to the container*/
-    .container {
-        padding: 16px;
-    }
-
-    /*set the forgot password text*/
-    span.psw {
-        float: right;
-        padding-top: 16px;
-    }
-
-    /*set the Modal background*/
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-        padding-top: 60px;
-    }
-
-    /*style the model content box*/
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
-    /*style the close button*/
-    .close {
-        position: absolute;
-        right: 25px;
-        top: 0;
-        color: #000;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: red;
-        cursor: pointer;
-    }
-
-    /* add zoom animation*/
-    .animate {
-        -webkit-animation: animatezoom 0.6s;
-        animation: animatezoom 0.6s
-    }
-
-    @-webkit-keyframes animatezoom {
-        from {
-            -webkit-transform: scale(0)
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {#<link rel="stylesheet" type="text/css" href="stylenovigation.css" />#}
+    <style>
+        body {
+            margin: 0;
         }
-        to {
-            -webkit-transform: scale(1)
-        }
-    }
 
-    @keyframes animatezoom {
-        from {
-            transform: scale(0)
+        ul.sidenav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
         }
-        to {
-            transform: scale(1)
-        }
-    }
 
-    @media screen and (max-width: 300px) {
-        span.psw {
+        ul.sidenav li a {
             display: block;
-            float: none;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
         }
-        .cancelbtn {
+
+        ul.sidenav li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.sidenav li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        div.content {
+            margin-left: 13%;
+            padding: 1px 16px;
+            height: 100px;
+        }
+
+        @media screen and (max-width: 900px) {
+            ul.sidenav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            ul.sidenav li a {
+                float: left;
+                padding: 15px;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            ul.sidenav li a {
+                text-align: center;
+                float: none;
+            }
+        }
+
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            border-collapse: collapse;
+            color: #686461;
+        }
+
+        caption {
+            padding: 20px;
+            display: block;
+            /* color: #000; */
+            padding: 8px 16px;
+            text-decoration: none;
+
+            font-size: 25px;
+            text-align: center;
+            /* font-weight: bold; */
+        }
+
+        th {
+            border-bottom: 3px solid #f1f1f1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+
+        /*the container must be positioned relative:*/
+        .custom-select {
+            position: relative;
+            font-family: Arial;
+            margin: 20px;
+            /* padding: 20px 50px; */
+
+        }
+
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
+        }
+
+        .select-selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
+        }
+
+        /*style the items (options), including the selected item:*/
+        .select-items div, .select-selected {
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /*style items (options):*/
+        .select-items {
+            position: absolute;
+            background-color: #f1f1f1;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
+
+        .select-items div:hover, .same-as-selected {
+            background-color: #555;
+            color: white;
+        }
+
+        /*assign full width inputs*/
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /*set a style for the buttons*/
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
             width: 100%;
         }
-    }
-</style>
+
+        /* set a hover effect for the button*/
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /*set extra style for the cancel button*/
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /*centre the display image inside the container*/
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        /*set image properties*/
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        /*set padding to the container*/
+        .container {
+            padding: 16px;
+        }
+
+        /*set the forgot password text*/
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /*set the Modal background*/
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        /*style the model content box*/
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /*style the close button*/
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* add zoom animation*/
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <ul class="sidenav">
-  <li><a class="active" href="/homePage">АРМ</a></li>
-  <li><a href="/menu">Меню</a></li>
-  <li><a href="/employee">Персонал </a></li>
-  <li><a  href="/tables"  >Бронировка столов</a></li>
-  <li><a href="/suppliers">Поставщики</a></li>
-  <li><a href="/">Выход</a></li>
+    <li><a class="active" href="/homePage">АРМ</a></li>
+    <li><a href="/menu">Меню</a></li>
+    <li><a href="/employee">Персонал </a></li>
+    <li><a href="/tables">Бронировка столов</a></li>
+    <li><a href="/suppliers">Поставщики</a></li>
+    <li><a href="/">Выход</a></li>
 </ul>
 
 <div class="content">
 
-        {% block content %}
+    {% block content %}
 
-        {% endblock %}
-{#        <h2>Responsive Topnav Example</h2>#}
-{#        <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>#}
-{#        <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>#}
-{#        <h4>Resize the browser window to see the effect.</h4>#}
+    {% endblock %}
+    {#        <h2>Responsive Topnav Example</h2>#}
+    {#        <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>#}
+    {#        <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>#}
+    {#        <h4>Resize the browser window to see the effect.</h4>#}
 
 </div>
 
