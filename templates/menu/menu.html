@@ -54,7 +54,7 @@
                                 var as = "  <table><caption> Закуски  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Закуски' %} "+
+                                        "{% if res.menu_section  == 'Закуски' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -63,7 +63,7 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
 
@@ -72,7 +72,7 @@
                                 var as = "  <table><caption> Салаты  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Салаты' %} "+
+                                        "{% if res.menu_section  == 'Салаты' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -81,7 +81,7 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
 
@@ -89,7 +89,7 @@
                                 var as = "  <table><caption> Закуски  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Гарниры' %} "+
+                                        "{% if res.menu_section  == 'Гарниры' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -98,14 +98,14 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
                             } else if (s.options[i].innerHTML == 'Мясо') {
                                 var as = "  <table><caption> Мясо  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Мясо' %} "+
+                                        "{% if res.menu_section  == 'Мясо' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -114,14 +114,14 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
                             } else if (s.options[i].innerHTML == 'Десерты') {
                                 var as = "  <table><caption> Десерты  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Десерты' %} "+
+                                        "{% if res.menu_section  == 'Десерты' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -130,7 +130,7 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
                             } else if (s.options[i].innerHTML == 'Напитки') {
@@ -138,7 +138,7 @@
                                 var as = "  <table><caption> Напитки  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Напитки' %} "+
+                                        "{% if res.menu_section  == 'Напитки' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -147,14 +147,14 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
                             } else if (s.options[i].innerHTML == 'Алкоголь') {
                                 var as = "  <table><caption> Алкоголь  </caption><tr><th>Наименование</th> <th>Выход, гр.</th>" +
                                     " <th>Цена, грн.</th></tr>" +
                                     "{% for res in people %} "+
-                                        "{% if res.menu_section == 'Алкоголь' %} "+
+                                        "{% if res.menu_section  == 'Алкоголь' %} "+
                                             " <tr><td>{{ res.name }}</td><td>{{ res.weight }}</td>"+
                                             "<td>{{ res.price }}</td>"
                                             +
@@ -163,7 +163,7 @@
                                             "{% endif %} "+
                                         "{% endfor %} " +
                                     "</table> <form action='addDB/' >" +
-                                    "    <button style='width:200px;'> Измененить данные </button>" +
+                                    "    <button style='width:200px;'> Добавление данных </button>" +
                                     "</form>";
                                 document.getElementById("insert").innerHTML = as;
                             }

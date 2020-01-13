@@ -1,0 +1,35 @@
+{% extends "entrance/novigation.html" %}
+
+{% block content %}
+    <div class="content">
+        <h3>Страница редактирования данных</h3>
+        <form style="width: 500px" method="POST" action="/suppliers/addSuppliers/1">
+            {% csrf_token %}
+            <p>
+                <label>Введите имя компании</label><br>
+                <input type="text" name="name"/>
+            </p>
+            <p>
+                <label>Введите вид поставок</label><br>
+                <input type="text" name="type_supply"/>
+            </p>
+
+            <p>
+                <label>Введите  телефон</label><br>
+                <input type="text" name="phone"/>
+            </p>
+            <p>
+                <label>Введите  адресс</label><br>
+                <input type="text" name="address"/>
+
+            </p>
+
+            <button type="submit">Сохранить</button>
+        </form>
+
+        <form style="width: 500px" action="/suppliers/">
+            <button type="submit">Назад</button>
+        </form>
+
+    </div>
+{% endblock %}

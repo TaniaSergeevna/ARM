@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Menu
+    # , Sections
 
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 
@@ -12,17 +13,16 @@ def menu(request):
 
 def addDB(request):
     people = Menu.objects.all()
+    # sections = Sections.objects.all()
     return render(request, 'menu/addDB.html', {"people": people})
 
 
 def db(request):
     if request.method == "POST":
-        print()
-
         tom = Menu(name=request.POST.get('name'),
                    menu_section=request.POST.get('menu_section'),
                    weight=request.POST.get('weight'),
-                   price=request.POST.get("price"))
+                   price=request.POST.get('price'))
         tom.save()
     return HttpResponseRedirect("/menu/")
 
@@ -45,6 +45,7 @@ def edit(request, id):
         person.delete()
         if request.method == "POST":
             person.name = request.POST.get("name")
+            person.menu_section = request.POST.get("menu_section")
             person.weight = request.POST.get("weight")
             person.price = request.POST.get("price")
             person.save()
@@ -53,3 +54,4 @@ def edit(request, id):
             return render(request, "menu/edit.html", {"person": person})
     except Menu.DoesNotExist:
         return HttpResponseNotFound("/menu/")
+

@@ -1,0 +1,32 @@
+{% extends "entrance/novigation.html" %}
+
+
+{% block content %}
+
+    <div class="content">
+    <h1>Домашняя страница</h1>
+    <form method="POST"  style="width: 500px" action="/suppliers/addSuppliers/1">
+        {% csrf_token %}
+         <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name"  value="{{person.name}}"/>
+        </p>
+         <p>
+            <label>Введите тип</label><br>
+            <input type="text" name="type_supply" value="{{person.type_supply}}"/>
+        </p>
+
+         <p>
+            <label>Введите  телефон</label><br>
+            <input type="text" name="phone" value="{{person.phone}}"/>
+        </p>
+         <p>
+            <label>Введите  адресс</label><br>
+            <input type="text" name="address"  value="{{person.address}}" />
+
+        </p>
+
+        <button type="submit" >Сохранить</button>
+    </form>
+    </div>
+{% endblock %}

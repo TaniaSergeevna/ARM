@@ -8,7 +8,7 @@
     <form method="POST"  style="width: 500px" action="/menu/addDB/1">
         {% csrf_token %}
          <p>
-            <label>Введите name</label><br>
+            <label>Введите название</label><br>
             <input type="text" name="name"  value="{{person.name}}"/>
         </p>
         <p>
@@ -27,11 +27,11 @@
             </select>
         </p>
          <p>
-            <label>Введите weight</label><br>
+            <label>Введите выход</label><br>
             <input type="text" name="weight" value="{{person.weight}}"/>
         </p>
         <p>
-            <label>Введите price</label><br>
+            <label>Введите цену</label><br>
             <input type="text" name="price" value="{{person.price}}"/>
         </p>
         <button type="submit" >Сохранить</button>

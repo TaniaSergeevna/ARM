@@ -2,7 +2,45 @@
 
 {% block content %}
 
+    <div class="content">
+
+        <table>
+            <caption> Заказа   </caption>
+            <tr>
+                <th> Номер столика</th>
+                <th> Фамилия офицанта</th>
+                <th> Номер заказа</th>
+                <th> Закуски</th>
+                <th>Салаты</th>
+                <th>Гарниры</th>
+                <th>Мясо</th>
+                <th>Десерты</th>
+                <th>Напитки</th>
+                <th>Алкоголь</th>
+            </tr>
+
+            {% for res in order %}
+
+                <tr>
+                    <td>{{ res.namber_table }}</td>
+                    <td>{{ res.name_oficen }}</td>
+                    <td>{{ res.namber_zak }}</td>
+                    <td>{{ res.menu1 }}</td>
+                    <td>{{ res.menu2 }}</td>
+                    <td>{{ res.menu3 }}</td>
+                    <td>{{ res.menu4 }}</td>
+                    <td>{{ res.menu5 }}</td>
+                    <td>{{ res.menu6 }}</td>
+                    <td>{{ res.menu7 }}</td>
 
 
+                </tr>
 
-    {% endblock %}
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+{% endblock %}

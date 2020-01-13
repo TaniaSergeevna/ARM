@@ -2,9 +2,38 @@
 
 {% block content %}
 
+    <div class="content">
 
 
-<div class="content">
-<h1>поставщики</h1>
-</div>
-    {% endblock %}
+        <table>
+            <caption> Поставщики</caption>
+            <tr>
+                <th> Имя</th>
+                <th> Вид поставок</th>
+
+                <th> Телефон</th>
+                <th> Адрес</th>
+            </tr>
+
+            {% for res in suppli %}
+
+                <tr>
+                    <td>{{ res.name }}</td>
+                    <td>{{ res.type_supply }}</td>
+                    <td>{{ res.phone }}</td>
+                    <td>{{ res.address }}</td>
+
+                    <td><a href='edit/{{ res.id }}'>Изменить</a> | <a href='delete/{{ res.id }}'>Удалить</a></td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+        <form action='addSuppliers/'>
+
+            <button style='width:200px;'> Добовление данных</button>
+
+        </form>
+
+    </div>
+{% endblock %}

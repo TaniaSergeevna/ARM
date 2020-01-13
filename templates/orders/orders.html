@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {#<link rel="stylesheet" type="text/css" href="stylenovigation.css" />#}
     <style>
-        body {
+               body {
             margin: 0;
         }
 
@@ -291,26 +291,54 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
 
-<ul class="sidenav">
-    <li><a class="active" href="/homePage">АРМ</a></li>
-    <li><a href="/menu"> Меню </a></li>
-    <li><a href="/employee">Персонал </a></li>
-    <li><a href="/tables"> Заказы </a></li>
-    <li><a href="/suppliers">Поставщики</a></li>
-    <li><a href="/catalog">Выход</a></li>
-</ul>
-
 <div class="content">
+    <h3>Страница оформления заказа</h3>
+    <table>
+        <tr>
+                <th> Номер столика</th>
+                <th> Фамилия офицанта</th>
+                <th> Номер заказа</th>
+                <th> Закуски</th>
+                <th>Салаты</th>
+                <th>Гарниры</th>
+                <th>Мясо</th>
+                <th>Десерты</th>
+                <th>Напитки</th>
+                <th>Алкоголь</th>
+            </tr>
 
-    {% block content %}
+        {% for res in order %}
 
-    {% endblock %}
+            <tr>
+                <td>{{ res.namber_table }}</td>
+                <td>{{ res.name_oficen }}</td>
+                <td>{{ res.namber_zak }}</td>
+                <td>{{ res.menu1 }}</td>
+                <td>{{ res.menu2 }}</td>
+                <td>{{ res.menu3 }}</td>
+                <td>{{ res.menu4 }}</td>
+                <td>{{ res.menu5 }}</td>
+                <td>{{ res.menu6 }}</td>
+                <td>{{ res.menu7 }}</td>
 
 
+                <td> <a href='delete/{{ res.id }}'>Удалить</a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    <form action='addOrders/'>
+
+        <button style='width:200px;'> Добавление заказа </button>
+
+    </form>
 </div>
 
 </body>
+</html>

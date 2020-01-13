@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 
-from entrance.models import Login
+from entrance.models import Logins
 
 # Register your models here.
 
-admin.site.register(Login)
+admin.site.register(Logins)
